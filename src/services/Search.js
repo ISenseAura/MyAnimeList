@@ -7,10 +7,10 @@ const MY_ANIME_LIST_DEFAULT_TYPE = 'anime';
  * Take a name and a type and return a array of object in connection with the name
  * @name searchResultsWhereNameAndType
  * @function
- * @param {string} name a title or a keyword in connection with the search
- * @param {string} type can take only 2 values 'anime' & 'manga'
+ * @param {string} name - a title or a keyword in connection with the search
+ * @param {string} type - can take only 2 values 'anime' & 'manga'
  * 
- * @returns {array[object]} a array of object in connection with the search
+ * @returns {Object[]} a array of object in connection with the search
  */
 exports.searchResultsWhereNameAndType = (name, type = MY_ANIME_LIST_DEFAULT_TYPE) => {
     return new Promise((resolve, reject) => {
