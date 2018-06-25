@@ -56,6 +56,33 @@ exports.getSeasonType = (type, html) => {
 }
 
 /** 
+ * Take a html body and return a array of object with all informations parsed
+ * @name parseEpisodePage
+ * @function
+ * @param {string} html - a html body
+ * 
+ * @returns {Object[]} a array of object with all informations parsed
+ */
+exports.parseEpisodePage = (html) => {
+    const $ = cheerio.load(html);
+    const allItems = $('tr.episode-list-data');
+    const result = [];
+
+    const items = allItems.slice(0, allItems.length / 2);
+
+    items.each((i, element) => {
+        result.push({
+            episodeNumber: +$(element).find('td.episode-number').text().trim(),
+            aired: $(element).find('td.episode-aired').text().trim(),
+            discussionLink: $(element).find('td.episode-forum > a').attr('href'),
+            title: $(element).find('td.episode-title > a').text().trim(),
+            originalTitle: $(element).find('td.episode-title > span').text().trim(),
+        });
+    });
+    return result;
+}
+
+/** 
  * Take a html body and return a object with all informations parsed
  * @name parsePage
  * @function
