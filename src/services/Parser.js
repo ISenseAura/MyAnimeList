@@ -1,5 +1,60 @@
 const cheerio = require('cheerio');
 
+const MY_ANIME_LIST_TYPE = {
+    TV: 1,
+    OVAs: 2,
+    Movies: 3,
+    Specials: 4,
+    ONAs: 5,
+};
+
+/** 
+ * Take a type and a html body and return a array of object with all informations parsed
+ * @name getSeasonType
+ * @function
+ * @param {string} type - a type of diffusion
+ * @param {string} html - a html body
+ * 
+ * @returns {Object[]} a array of object with all informations parsed
+ */
+exports.getSeasonType = (type, html) => {
+    const $ = cheerio.load(html);
+    const result = [];
+    const classToSearch = `.js-seasonal-anime-list-key-${MY_ANIME_LIST_TYPE[type]} .seasonal-anime.js-seasonal-anime`;
+
+    $(classToSearch).each((i, element) => {
+
+        const title = $(element).find('.title').find('p').find('a');
+        const synopsis = $(element).find('.synopsis').find('.preline');
+        const licensor = $(element).find('.synopsis').find('.licensors');
+        const picture = $(element).find('.image').find('img');
+        const link = $(element).find('.title').find('a');
+        const genres = $(element).find('.genres').find('.genres-inner');
+        const producer = $(element).find('.producer');
+        const fromType = $(element).find('.source');
+        const numberOfEpisode = $(element).find('.eps').find('a');
+        const releaseDate = $(element).find('.info').find('span');
+        const rating = $(element).find('.scormem').find('.score');
+
+        if (!$(element).hasClass('kids') && !$(element).hasClass('r18')) {
+            result.push({
+                title: title.text(),
+                synopsis: synopsis.text(),
+                licensor: licensor.attr('data-licensors').slice(0, -1),
+                picture: picture.attr(picture.hasClass('lazyload') ? 'data-src' : 'src'),
+                link: link.attr('href').replace('/video', ''),
+                genres: genres.text().trim().split('\n      \n        '),
+                producers: producer.text().trim().split(', '),
+                fromType: fromType.text().trim(),
+                numberOfEpisode: numberOfEpisode.text().trim().replace(' eps', ''),
+                releaseDate: releaseDate.text().trim(),
+                rating: rating.text().trim(),
+            })
+        }
+    });
+    return result;
+}
+
 /** 
  * Take a html body and return a object with all informations parsed
  * @name parsePage
