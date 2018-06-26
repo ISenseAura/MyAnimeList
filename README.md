@@ -1,7 +1,7 @@
 # MyAnimeList
 
-[![Build Status](https://travis-ci.org/SombreroElGringo/MyAnimeList.svg?branch=develop)](https://travis-ci.org/SombreroElGringo/MyAnimeList)
-[![codecov](https://codecov.io/gh/SombreroElGringo/MyAnimeList/branch/develop/graph/badge.svg)](https://codecov.io/gh/SombreroElGringo/MyAnimeList)
+[![Build Status](https://travis-ci.org/SombreroElGringo/MyAnimeList.svg?branch=master)](https://travis-ci.org/SombreroElGringo/MyAnimeList)
+[![codecov](https://codecov.io/gh/SombreroElGringo/MyAnimeList/branch/master/graph/badge.svg)](https://codecov.io/gh/SombreroElGringo/MyAnimeList)
 ![License](https://img.shields.io/badge/License-MIT-blue.svg)
 
 A web scraper for myanimelist.net allowing you to recover any information on your favorite animes or mangas.
