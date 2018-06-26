@@ -1,5 +1,5 @@
 {
-  "name": "myanimelist",
+  "name": "myanimelists",
   "version": "1.0.0",
   "description": "myanimelist.net web scraper",
   "main": "./src/index.js",

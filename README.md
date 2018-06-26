@@ -10,16 +10,16 @@ A web scraper for myanimelist.net allowing you to recover any information on you
 
 Terminal:
 ```shell
-$ npm install --save myanimelist
+$ npm install --save myanimelists
 ```
 
 Node.js:
 ```js
   // Load the full build
-  const myanimelist = require('myanimelist');
+  const myanimelist = require('myanimelists');
   
   // Load the method build
-  const { getSeasons } = require('myanimelist');
+  const { getSeasons } = require('myanimelists');
 ```
 
 
@@ -37,7 +37,7 @@ That method return a list of anime or manga in connection with the name specifie
 #### Example
 
 ```js
-  const { searchResultsWhereNameAndType } = require('myanimelist');
+  const { searchResultsWhereNameAndType } = require('myanimelists');
   
   searchResultsWhereNameAndType('meagalobox', 'anime')
     .then(result => console.log(result))
@@ -56,7 +56,7 @@ That method get all informations about the anime specified.
 #### Example
 
 ```js
-  const { getInfoFromName } = require('myanimelist');
+  const { getInfoFromName } = require('myanimelists');
   
   getInfoFromName('Samurai Champloo')
     .then(result => console.log(result))
@@ -75,7 +75,7 @@ That method get all informations about the anime specified.
 #### Example
 
 ```js
-  const { searchResultsWhereNameAndType } = require('myanimelist');
+  const { searchResultsWhereNameAndType } = require('myanimelists');
   
   searchResultsWhereNameAndType('https://myanimelist.net/anime/205/Samurai_Champloo', 'anime')
     .then(result => console.log(result))
@@ -95,7 +95,7 @@ That method get the list of anime, OVAs, ONAs, movies and specials released or p
 #### Example
 
 ```js
-  const { getSeasons } = require('myanimelist');
+  const { getSeasons } = require('myanimelists');
   
   getSeasons(2018, 'summer')
     .then(result => console.log(result))
@@ -114,7 +114,7 @@ That method get the list of all episode of the anime specified.
 #### Example
 
 ```js
-  const { getEpisodesList } = require('myanimelist');
+  const { getEpisodesList } = require('myanimelists');
   
   // If param is a string 
   const obj = 'Samurai Champloo';
