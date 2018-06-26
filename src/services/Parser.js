@@ -123,27 +123,21 @@ exports.parsePage = (html) => {
     result.popularity = getFromBorder($, 'Popularity:');
     result.members = getFromBorder($, 'Members:');
     result.favorites = getFromBorder($, 'Favorites:');
-
     return result;
 }
 
 const getCharactersAndStaff = ($) => {
-    const results = {
-      characters: [],
-      staff: [],
-    };
+    const results = {};
   
-    // Characters
+    results.characters = [];
     const leftC = $('div.detail-characters-list').first().find('div.left-column');
     const rightC = $('div.detail-characters-list').first().find('div.left-right');
-  
     const nbLeftC = leftC.children('table').length;
     const nbRightC = rightC.children('table').length;
   
-    // Staff
+    results.staff = [];
     const leftS = $('div.detail-characters-list').last().find('div.left-column');
     const rightS = $('div.detail-characters-list').last().find('div.left-right');
-  
     const nbLeftS = leftS.children('table').length;
     const nbRightS = rightS.children('table').length;
   
