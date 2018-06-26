@@ -1,0 +1,42 @@
+{
+  "name": "myanimelists",
+  "version": "1.0.0",
+  "description": "myanimelist.net web scraper",
+  "main": "./src/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "nyc mocha test --recursive --opts ./test/mocha.opts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SombreroElGringo/MyAnimeList.git"
+  },
+  "keywords": [
+    "API",
+    "web",
+    "scraper",
+    "myanimelist",
+    "anime",
+    "manga"
+  ],
+  "author": "SombreroElGringo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SombreroElGringo/MyAnimeList/issues"
+  },
+  "homepage": "https://github.com/SombreroElGringo/MyAnimeList#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "cheerio": "^1.0.0-rc.2",
+    "lodash": "^4.17.10",
+    "match-sorter": "^2.2.3"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
+    "mocha": "^5.2.0",
+    "nyc": "^12.0.2"
+  }
+}
