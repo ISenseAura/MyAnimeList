@@ -39,7 +39,7 @@ exports.getInfoFromName = (name) => {
         if (!name || typeof name !== 'string') throw new Error('[ERROR] getInfoFromName: Invalid name');
         
         serviceSearch.searchResultsWhereNameAndType(name)
-            .then(async (items) => {
+            .then(async items => {
             try {
                 const bestMacth = match(items, name, { keys: ['name'] })[0];
                 const url = bestMacth ? bestMacth.url : items[0].url;
